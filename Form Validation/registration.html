@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("vvv.jpg"); /* Background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.1); /* Light grey background */
+        }
+
+        input[type="submit"] {
+            background-color: #50ca9c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1da75b;
+        }
+
+        .success-msg {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Join the Community!</h2>
+        <form action="" onsubmit="return formvalidation()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            
+            <label for="usn">USN:</label>
+            <input type="text" id="usn" name="usn" placeholder="Enter your USN (if applicable)">
+            
+            <label for="college">College:</label>
+            <input type="text" id="college" name="college" placeholder="Enter your college">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Create a password">
+            
+            <input type="submit" value="Join Now">
+        </form>
+    </div>
+
+    <div id="registrationSuccessMsg" class="success-msg" style="display: none;">
+        <p>Registration successful!</p>
+    </div>
+
+    <script>
+        function formvalidation(){
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const usn = document.getElementById('usn').value;
+            const college = document.getElementById('college').value;
+            const password = document.getElementById('password').value;
+            let isval = true;
+            if(username.trim() === ''){
+                alert("Username should not be empty");
+                isval = false;
+            }
+            if(email.trim() === ''){
+                alert("Email should not be empty");
+                isval = false;
+            }
+            if(usn.trim() === ''){
+                alert("USN should not be empty");
+                isval = false;
+            }
+            if(college.trim() === ''){
+                alert("College should not be empty");
+                isval = false;
+            }
+            if(password.trim().length < 8){
+                alert("Password should be at least 8 characters long");
+                isval = false;
+            }
+            if(isval){
+                // If all fields are valid, show success message
+                document.getElementById("registrationSuccessMsg").style.display = "block";
+            }
+            return isval;
+        }
+    </script>
+</body>
+</html>
